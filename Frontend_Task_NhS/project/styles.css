@@ -117,10 +117,6 @@ p {
         transform: rotate(0deg)
     }
 
-    img {
-        color: red;
-
-    }
 }
 
 @keyframes openPanel{
@@ -129,6 +125,8 @@ p {
 
 img {
     color: red;
+    height: 35px;
+    
 }
 
 
@@ -140,6 +138,10 @@ img {
     padding: 0 18px;
     display: none;
     overflow: hidden;
+}
+
+.active{
+    display:block;
 }
 
 .row {

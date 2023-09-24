@@ -1,133 +1,121 @@
-var allParentAccordions = document.querySelectorAll("button.accordion");
-var allChildAccordions = document.querySelectorAll("button.sub-accordion");
-
 var content = [
   {
-    title: "Sobodi Loren",
+    title: "Accordion 1",
     subAccordions: [
       {
-        title: "Loren Ipsum",
+        title: "Sub 1",
         content: "lasködfj sklöadfjlöasdfjö",
         box: "jfsdklfjsdklföj eifjksdlfjsd kvmxcm,.v",
       },
       {
-        title: "Loren Ipsum",
+        title: "Sub 2",
         content: "lasködfj sklöadfjlöasdfjö",
         box: "jfsdklfjsdklföj eifjksdlfjsd kvmxcm,.v",
       },
       {
-        title: "Loren Ipsum",
+        title: "Sub 3",
         content: "lasködfj sklöadfjlöasdfjö",
         box: "jfsdklfjsdklföj eifjksdlfjsd kvmxcm,.v",
       },
     ],
   },
   {
-    title: "Sobodi dklösfjlösdf",
+    title: "Accordion 2",
     subAccordions: [
       {
-        title: "Loren Ipsum",
+        title: "Loren Ipsum 1",
         content: "lasködfj sklöadfjlöasdfjö",
         box: "jfsdklfjsdklföj eifjksdlfjsd kvmxcm,.v",
       },
       {
-        title: "Loren Ipsum",
+        title: "Loren Ipsum 2",
         content: "lasködfj sklöadfjlöasdfjö",
         box: "jfsdklfjsdklföj eifjksdlfjsd kvmxcm,.v",
       },
       {
-        title: "Loren Ipsum",
+        title: "Loren Ipsum 3",
         content: "lasködfj sklöadfjlöasdfjö",
         box: "jfsdklfjsdklföj eifjksdlfjsd kvmxcm,.v",
       },
     ],
-  }
+  },
 ];
 
+const container = document.querySelector(".container");
+
 window.onload = function () {
-  console.log("hello")
-  const container = document.querySelector(".container")
+  content.forEach((element) => {
+    createAccordion(element, "toplevel");
 
-  content.forEach((element)=>{
-    const parentAccordion = document.createElement("button");
-    parentAccordion.classList.add("accordion")
-    parentAccordion.innerHTML = element.title
-
-    container.appendChild(parentAccordion)
-  })
+    //Fill Panel with Sub-Accordions
+    element.subAccordions.forEach((subElement) => {
+      createAccordion(subElement, "sublevel");
+    });
+  });
 };
 
-for (i = 0; i < allParentAccordions.length; i++) {
-  allParentAccordions[i].addEventListener("click", function () {
-    //get all HTML-Elements with the Class-Token "active", and remove "active" if it was previous Accordion
-    var activeParentAccordions =
-      document.getElementsByClassName("accordion active");
+function createAccordion(element, level) {
+  //create Accordion-Button
+  const accordion = document.createElement("button");
 
-    handleAccordions(this, activeParentAccordions, true);
-  });
-}
+  //create Panel
+  const panel = document.createElement("div");
+  panel.classList.add("panel");
 
-for (i = 0; i < allChildAccordions.length; i++) {
-  allChildAccordions[i].addEventListener("click", function () {
-    //get all HTML-Elements with the Class-Token "active", and remove "active" if it was previous Accordion
-    var activeChildAccordions = document.getElementsByClassName(
-      "sub-accordion active"
-    );
-
-    handleAccordions(this, activeChildAccordions, false);
-  });
-}
-
-function handleAccordions(triggeredAccordion, accordionSublist, topLevel) {
-  if (accordionSublist.length > 0) {
-    var x;
-    var y;
-
-    for (x = 0; x < accordionSublist.length; x++) {
-      if (triggeredAccordion == accordionSublist[x]) {
-        triggeredAccordion.querySelector("img").style.animation =
-          "rotationBackwards 0.2s forwards";
-        accordionSublist[x].nextElementSibling.style.display = "none";
-        accordionSublist[x].classList.toggle("active");
-
-        if (topLevel) {
-          handleSubLevelAccordions();
-        }
-
-        console.log("same Accordion");
-      } else {
-        accordionSublist[x].querySelector("img").style.animation =
-          "rotationBackwards 0.2s forwards ";
-        triggeredAccordion.querySelector("img").style.animation =
-          "rotationForwards 0.2s forwards";
-        accordionSublist[x].nextElementSibling.style.display = "none";
-        accordionSublist[x].classList.toggle("active");
-        triggeredAccordion.nextElementSibling.style.display = "block";
-        triggeredAccordion.classList.toggle("active");
-
-        if (topLevel) {
-          handleSubLevelAccordions();
-        }
-        console.log("different Accordion");
-
-        //TODO: Handle Sub-Accordions
-      }
-    }
+  //define Accordion-Class-Level & append into Container or Top-Accordion
+  if (level === "toplevel") {
+    accordion.classList.add("accordion");
+    container.appendChild(accordion);
+    container.appendChild(panel);
   } else {
-    triggeredAccordion.querySelector("img").style.animation =
-      "rotationForwards 0.2s forwards";
-    triggeredAccordion.nextElementSibling.style.display = "block";
-    triggeredAccordion.classList.toggle("active");
-    console.log("first Accordion");
+    accordion.classList.add("sub-accordion");
   }
-}
 
-function handleSubLevelAccordions() {
-  for (y = 0; y < allChildAccordions.length; y++) {
-    allChildAccordions[y].querySelector("img").style.animation =
-      "rotationBackwards 0.2s";
-    allChildAccordions[y].nextElementSibling.style.display = "none";
-    allChildAccordions[y].classList.remove("active");
-    console.log("removed Subaccordions");
+  //Define Button-Layout
+  const row = document.createElement("div");
+  row.classList.add("row");
+  const colL = document.createElement("div");
+  colL.classList.add("col-l");
+  const colR = document.createElement("div");
+  colR.classList.add("col-R");
+  row.appendChild(colL);
+  row.appendChild(colR);
+  accordion.appendChild(row);
+
+  //Fill Button
+  const accordionTitle = document.createElement("h2");
+  accordionTitle.innerHTML = element.title;
+  colL.appendChild(accordionTitle);
+  const accordionPlus = document.createElement("img");
+  accordionPlus.src = "extras/img/secondary-plus.svg";
+  colR.appendChild(accordionPlus);
+
+  //If Sublevel-Accordion find Parent-Panel & append Panel
+  //Fill Panel with Content
+  if (level === "sublevel") {
+    panel.innerHTML = element.content;
+
+    //Search All Parent-Accordions
+    const accordionList = document.querySelectorAll(".accordion");
+    //Pick last Accordion & pick the corresponding Panel
+    const lastParentPanel =
+      accordionList[accordionList.length - 1].nextElementSibling;
+    lastParentPanel.appendChild(accordion);
+    lastParentPanel.appendChild(panel);
   }
+
+  //add EventListener
+  accordion.addEventListener("click", function () {
+   //search last active Parent Accordion
+   var activeParentAccordion = document.querySelectorAll("."+accordion.classList.value+".active");
+   console.log(activeParentAccordion)
+
+   accordion.nextElementSibling.classList.toggle("active")
+   accordion.classList.toggle("active")
+
+   activeParentAccordion.forEach((accordion)=>{
+     accordion.classList.remove("active")
+     accordion.nextElementSibling.classList.remove("active")
+   })
+  });
 }
