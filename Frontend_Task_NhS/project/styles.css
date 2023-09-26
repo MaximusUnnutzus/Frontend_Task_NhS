@@ -7,27 +7,44 @@ body {
 
 .container {
     display: block;
-    margin-left: 15%;
-    margin-right: 15%;
-    min-width: 70%;
+    margin: 0% 45%;
+
+    min-width: 50%;
+}
+
+.container-box {
+    background-color: rgb(224, 223, 221);
+    padding:12px;
+    margin: 40px 0px;
+    min-height: 30px;
+
+    
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 110px 0px;
     font-family: VistaSansBook;
+    font-weight: normal;
+    text-align: left;
+    color: rgb(0, 42, 63);
+
 }
 
 h2 {
     text-align: center;
     margin-bottom: 10px;
     font-family: VistaSansBook;
+    font-weight: normal;
+    color: rgb(0, 42, 63);
+    text-align: left;
 }
 
 h3 {
     text-align: center;
     margin-bottom: 10px;
     font-family: VistaSansBook;
+    color: rgb(95, 89, 80);
 }
 
 p {
@@ -36,26 +53,32 @@ p {
 
 .accordion {
     cursor: pointer;
-    padding: 18px;
+    padding: 20px 0px;
     width: 100%;
     text-align: left;
     border: none;
     outline: none;
     transition: 0.4s;
-    border-bottom: 2px solid  rgb(141, 136, 136);
+    border-top: 1px solid  #c5c5c5;
+    border-bottom: 1px solid  #c5c5c5;
     background-color: transparent;
 }
 
 .sub-accordion {
     cursor: pointer;
-    padding: 18px;
+    padding: 20px 0px;
     width: 100%;
     text-align: left;
     border: none;
     outline: none;
     transition: 0.4s;
     background-color: transparent;
+    border-bottom: 1px solid  #c5c5c5;
 
+}
+
+.accordion:hover {
+    background-color: #ccc;
 }
 
 
@@ -119,30 +142,33 @@ p {
 
 }
 
-@keyframes openPanel{
-
-}
 
 img {
-    color: red;
-    height: 35px;
+    width: 35px;
     
 }
 
 
-.accordion:hover {
-    background-color: #ccc;
+
+.zeroRotate{
+    animation: 0.2s rotationBackwards backwards;
 }
 
+.fortyFiveRotate{
+    animation: 0.2s rotationForwards forwards;
+}
+
+
+
+
 .panel {
-    padding: 0 18px;
     display: none;
     overflow: hidden;
 }
 
 .active{
     display:block;
-}
+q}
 
 .row {
     display: flex;
@@ -154,6 +180,7 @@ img {
 
   .col-l{
     justify-content: start;
+    max-width: 90%;
   }
 
   .col-r{
