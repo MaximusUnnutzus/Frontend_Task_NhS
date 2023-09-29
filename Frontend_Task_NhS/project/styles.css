@@ -24,8 +24,10 @@ body {
 h1 {
     text-align: center;
     margin: 110px 0px;
-    font-family: VistaSansBook;
-    font-weight: normal;
+    font-family: VistaSlabBook;
+    line-height: 43px;
+    font-size: 40px;
+    font-weight: lighter;
     text-align: left;
     color: rgb(0, 42, 63);
 
@@ -33,9 +35,10 @@ h1 {
 
 h2 {
     text-align: center;
-    margin-bottom: 10px;
-    font-family: VistaSansBook;
-    font-weight: normal;
+    font-family: VistaSlabBook;
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: bold;
     color: rgb(0, 42, 63);
     text-align: left;
 }
@@ -43,12 +46,25 @@ h2 {
 h3 {
     text-align: center;
     margin-bottom: 10px;
-    font-family: VistaSansBook;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: bold;
+    font-family: VistaSlabBook;
     color: rgb(95, 89, 80);
 }
 
 p {
     font-family: VistaSansBook;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: lighter;
+}
+
+b{
+    font-family: VistaSansBook;
+    font-size:18px;
+    line-height: 24px;
+    font-weight: bold;
 }
 
 .accordion {
@@ -168,7 +184,7 @@ img {
 
 .active{
     display:block;
-q}
+}
 
 .row {
     display: flex;
@@ -187,7 +203,13 @@ q}
 
     justify-content: center;
   }
+
 @font-face {
     font-family: VistaSansBook;
     src: url(extras/fonts/VistaSansBook.woff);
+}
+
+@font-face {
+    font-family: VistaSlabBook;
+    src: url(extras/fonts/VistaSlabBook.woff);
 }
