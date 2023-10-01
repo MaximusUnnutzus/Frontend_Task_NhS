@@ -1,215 +1,265 @@
 body {
-
-    display: flex;
-    justify-content: center;
-
-}
-
-.container {
-    display: block;
-    margin: 0% 45%;
-
-    min-width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .container-box {
-    background-color: rgb(224, 223, 221);
-    padding:12px;
-    margin: 40px 0px;
-    min-height: 30px;
-
-    
-}
-
-h1 {
-    text-align: center;
-    margin: 110px 0px;
-    font-family: VistaSlabBook;
-    line-height: 43px;
-    font-size: 40px;
-    font-weight: lighter;
-    text-align: left;
-    color: rgb(0, 42, 63);
-
-}
-
-h2 {
-    text-align: center;
-    font-family: VistaSlabBook;
-    font-size: 24px;
-    line-height: 26px;
-    font-weight: bold;
-    color: rgb(0, 42, 63);
-    text-align: left;
-}
-
-h3 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 20px;
-    line-height: 26px;
-    font-weight: bold;
-    font-family: VistaSlabBook;
-    color: rgb(95, 89, 80);
-}
-
-p {
-    font-family: VistaSansBook;
-    font-size: 15px;
-    line-height: 21px;
-    font-weight: lighter;
-}
-
-b{
-    font-family: VistaSansBook;
-    font-size:18px;
-    line-height: 24px;
-    font-weight: bold;
+  background-color: rgb(224, 223, 221);
+  padding: 12px;
+  margin: 40px 0px;
+  min-height: 30px;
+  margin-top: 32px;
 }
 
 .accordion {
-    cursor: pointer;
-    padding: 20px 0px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-    border-top: 1px solid  #c5c5c5;
-    border-bottom: 1px solid  #c5c5c5;
-    background-color: transparent;
+  cursor: pointer;
+  padding: 20px 0px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  border-top: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
+  background-color: transparent;
 }
 
 .sub-accordion {
-    cursor: pointer;
-    padding: 20px 0px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-    background-color: transparent;
-    border-bottom: 1px solid  #c5c5c5;
-
+  cursor: pointer;
+  padding: 20px 0px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  background-color: transparent;
+  border-bottom: 1px solid #c5c5c5;
 }
 
 .accordion:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
-
-
-
 @keyframes rotationForwards {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    25% {
-        transform: rotate(9deg)
-    }
+  25% {
+    transform: rotate(9deg);
+  }
 
-    50% {
-        transform: rotate(18deg)
-    }
+  50% {
+    transform: rotate(18deg);
+  }
 
-    75% {
-        transform: rotate(27deg)
-    }
+  75% {
+    transform: rotate(27deg);
+  }
 
-    75% {
-        transform: rotate(36deg)
-    }
+  75% {
+    transform: rotate(36deg);
+  }
 
-    100% {
-        transform: rotate(45deg)
-    }
+  100% {
+    transform: rotate(45deg);
+  }
 
-    img {
-        color: red;
-
-    }
+  img {
+    color: red;
+  }
 }
 
 @keyframes rotationBackwards {
-    0% {
-        transform: rotate(45deg);
-    }
+  0% {
+    transform: rotate(45deg);
+  }
 
-    25% {
-        transform: rotate(36deg)
-    }
+  25% {
+    transform: rotate(36deg);
+  }
 
-    50% {
-        transform: rotate(27deg)
-    }
+  50% {
+    transform: rotate(27deg);
+  }
 
-    75% {
-        transform: rotate(18deg)
-    }
+  75% {
+    transform: rotate(18deg);
+  }
 
-    75% {
-        transform: rotate(9deg)
-    }
+  75% {
+    transform: rotate(9deg);
+  }
 
-    100% {
-        transform: rotate(0deg)
-    }
-
+  100% {
+    transform: rotate(0deg);
+  }
 }
-
 
 img {
-    width: 35px;
-    
+  width: 35px;
 }
 
-
-
-.zeroRotate{
-    animation: 0.2s rotationBackwards backwards;
+.zeroRotate {
+  animation: 0.2s rotationBackwards backwards;
 }
 
-.fortyFiveRotate{
-    animation: 0.2s rotationForwards forwards;
+.fortyFiveRotate {
+  animation: 0.2s rotationForwards forwards;
 }
-
-
-
 
 .panel {
-    display: none;
-    overflow: hidden;
+  display: none;
+  overflow: hidden;
 }
 
-.active{
-    display:block;
+.active {
+  display: block;
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .col-l{
-    justify-content: start;
-    max-width: 90%;
-  }
+.col-l {
+  justify-content: start;
+  max-width: 88%;
+}
 
-  .col-r{
-
-    justify-content: center;
-  }
-
-@font-face {
-    font-family: VistaSansBook;
-    src: url(extras/fonts/VistaSansBook.woff);
+.col-r {
+  justify-content: center;
 }
 
 @font-face {
-    font-family: VistaSlabBook;
-    src: url(extras/fonts/VistaSlabBook.woff);
+  font-family: VistaSansBook;
+  src: url(extras/fonts/VistaSansBook.woff);
+}
+
+@font-face {
+  font-family: VistaSansLight;
+  src: url(extras/fonts/VistaSansLight.woff);
+}
+
+@font-face {
+  font-family: VistaSansMed;
+  src: url(extras/fonts/VistaSansMed.woff);
+}
+
+@font-face {
+  font-family: VistaSansReg;
+  src: url(extras/fonts/VistaSansReg.woff);
+}
+
+@font-face {
+  font-family: VistaSlabBook;
+  src: url(extras/fonts/VistaSlabBook.woff);
+}
+
+@font-face {
+  font-family: VistaSlabLight;
+  src: url(extras/fonts/VistaSlabLight.woff);
+}
+
+h1 {
+  color: rgb(0, 38, 59);
+  font-family: VistaSlabLight;
+}
+
+h2 {
+  color: rgb(0, 38, 59);
+  font-family: VistaSlabBook;
+
+}
+
+h3 {
+  color: rgb(95, 89, 80);
+  font-family: VistaSlabBook;
+
+}
+
+b {
+  color: rgb(0, 38, 59);
+  font-family: VistaSansMed;
+}
+
+p {
+  color: rgb(0, 38, 59);
+  font-family: VistaSansReg;
+
+}
+
+@media (max-width: 769px) {
+  .container {
+    margin: 00px 30px;
+  }
+  h1 {
+    font-size: 40px;
+    line-height: 43px;
+    text-align: left;
+    margin: 90px 0px;
+  }
+
+  /* book */
+  h2 {
+    font-size: 24px;
+    line-height: 35px;
+    text-align: left;
+    margin: 16px 0px;
+  }
+
+  /* book */
+  h3 {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: book;
+    text-align: left;
+  }
+
+  b {
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 16px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 21px;
+    margin-top: 16px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 770px) {
+  .container {
+    padding: 12px;
+    margin: 00px 100px;
+    max-width: 45%;
+  }
+  h1 {
+    font-size: 60px;
+    line-height: 67px;
+    margin: 120px 0px;
+    max-width: 40%;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 39px;
+  }
+  h3 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  b {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  p {
+    font-size: 15px;
+    line-height: 21px;
+  }
 }

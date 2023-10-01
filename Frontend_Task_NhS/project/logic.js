@@ -388,7 +388,7 @@ function createAccordion(element, level) {
       paragraphText.textContent = paragraph.paragraphText;
 
       panel.appendChild(paragraphTitle);
-      panel.appendChild(paragraphText);      
+      panel.appendChild(paragraphText);
     });
 
     const containerBox = document.createElement("div");
@@ -412,16 +412,15 @@ function createAccordion(element, level) {
       "." + accordion.classList.value + ".active"
     );
 
-
-//Add / remove Active Class from same Accordion
+    //Add / remove Active Class from same Accordion
     accordion.nextElementSibling.classList.toggle("active");
     accordion.classList.toggle("active");
 
     //Add or remove the border bottom of sub accordions based on classList value
-    if (accordion.classList.value.includes("sub-accordion active")){
+    if (accordion.classList.value.includes("sub-accordion active")) {
       accordion.style.borderBottom = "none";
       accordion.nextElementSibling.style.borderBottom = "1px solid  #c5c5c5";
-    }else{
+    } else {
       accordion.style.borderBottom = "1px solid  #c5c5c5";
     }
 
@@ -429,13 +428,13 @@ function createAccordion(element, level) {
     accordion.nextElementSibling
       .querySelectorAll(".sub-accordion.active")
       .forEach((element) => {
-        console.log(element.querySelector("img"))
+        console.log(element.querySelector("img"));
         element.classList.remove("active");
         element.nextElementSibling.classList.remove("active");
         //add sub-accordion border-bottom when switching to another top level && rotate the button back
         element.style.borderBottom = "1px solid  #c5c5c5";
         element.querySelector("img").classList.remove("fortyFiveRotate");
-        element.querySelector("img").style.transform= "rotate(0deg)";
+        element.querySelector("img").style.transform = "rotate(0deg)";
       });
 
     //add the Button Spin Animation
@@ -445,14 +444,12 @@ function createAccordion(element, level) {
     ) {
       accordion.querySelector("img").classList.add("fortyFiveRotate");
     } else {
-
       accordion.querySelector("img").classList.remove("fortyFiveRotate");
       accordion.querySelector("img").classList.add("zeroRotate");
     }
 
-  //Remove Active Class from previous Accordion
+    //Remove Active Class from previous Accordion
     activeParentAccordion.forEach((accordion) => {
-
       accordion.classList.remove("active");
       accordion.nextElementSibling.classList.remove("active");
       accordion.querySelector("img").classList.remove("fortyFiveRotate");
@@ -464,24 +461,27 @@ function createAccordion(element, level) {
     //Remove Active Class from Child Accordions if switched to another Accordion
     if (activeParentAccordion.length > 0) {
       if (accordion.classList.value === "accordion active") {
-
-
         console.log("Switch to new Top-Level-Accordion, closing all children");
         let childAccordions =
           activeParentAccordion[0].nextElementSibling.querySelectorAll(
             ".sub-accordion.active"
           );
+        console.log(childAccordions[0]);
+        if (childAccordions[0]) {
+          childAccordions[0].classList.remove("active");
 
-        childAccordions[0].classList.remove("active");
+          childAccordions[0].nextElementSibling.classList.remove("active");
+          childAccordions[0].style.borderBottom = "1px solid  #c5c5c5";
 
-        childAccordions[0].nextElementSibling.classList.remove("active");
-        childAccordions[0].style.borderBottom = "1px solid  #c5c5c5";
-
-        childAccordions[0]
-          .querySelector("img")
-          .classList.remove("fortyFiveRotate");
-          childAccordions[0].querySelector("img").classList.remove("fortyFiveRotate");
-          childAccordions[0].querySelector("img").style.transform= "rotate(0deg)";
+          childAccordions[0]
+            .querySelector("img")
+            .classList.remove("fortyFiveRotate");
+          childAccordions[0]
+            .querySelector("img")
+            .classList.remove("fortyFiveRotate");
+          childAccordions[0].querySelector("img").style.transform =
+            "rotate(0deg)";
+        }
       }
     }
   });
